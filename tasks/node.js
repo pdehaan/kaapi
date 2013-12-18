@@ -7,6 +7,9 @@ module.exports = function (grunt) {
   var Mocha = require('mocha');
   var requirejs = require('requirejs');
 
+  // enhance chai's flavour
+  chai.use(require('sinon-chai'));
+
   var path = require('path');
 
   var glob = grunt.file.glob;
