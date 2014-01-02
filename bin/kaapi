@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var Kaapi = require('..');
+var program = require('mocha/node_modules/commander');
+
+program
+  .version(require('../package.json').version)
+  .option('-f, --files <glob pattern>', 'Spec files')
+  .option('-u, --ui [bdd|tdd]', 'Mocha user-interface')
+  .option('-r, --reporter [dot|spec]', 'Mocha reporter to use')
+  .option('-g, --grep <pattern>', 'filter specs by pattern')
+  .option('-w, --watch', 'watch files for changes')
+  .parse(process.argv);
+
+
+// Create a new runner
+var kaapi = new Kaapi({
+  'ui': program.ui,
+  'reporter': program.reporter,
+  'grep': program.grep
+});
+
+if (program.watch) {
+  var Watcher = require('../lib/watcher');
+  var watcher = new Watcher(kaapi);
+  watcher.watch('public', '**/*.js');
+  watcher.watch('specs', '**/*.spec.js');
+}
+
+kaapi.run();

@@ -2,17 +2,23 @@
   "name": "kaapi",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/kaapi.js",
+  "bin": {
+    "kaapi": "./bin/kaapi"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "bin/kaapi specs/*.spec.js"
   },
   "author": "NetRoY <aditya@netroy.in> (http://netroy.in/)",
-  "license": "BSD",
+  "license": "MIT",
   "dependencies": {
-    "requirejs": "~2.1.9",
     "chai": "~1.8.1",
-    "mocha": "~1.15.1",
+    "mocha": "~1.16.2",
+    "requirejs": "~2.1.9",
     "sinon": "~1.7.3",
-    "sinon-chai": "~2.4.0"
+    "sinon-chai": "~2.4.0",
+    "node.extend": "~1.0.8",
+    "watch": "~0.8.0",
+    "minimatch": "~0.2.14"
   }
 }
