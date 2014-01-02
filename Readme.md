@@ -1,5 +1,11 @@
 ### Highly-Opinionated, Mocha-based Spec runner
 
+#### Assumptions
+* requirejs
+* mocha
+* sinon
+* chai
+
 #### Installation
 `npm install kaapi`
 
