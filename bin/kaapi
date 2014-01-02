@@ -10,6 +10,9 @@ program
   .option('-r, --reporter [dot|spec]', 'Mocha reporter to use')
   .option('-g, --grep <pattern>', 'filter specs by pattern')
   .option('-w, --watch', 'watch files for changes')
+  .option('-c, --coverage', 'Generate coverage reports')
+  .option('--browser [chrome|firefox|phantomjs]',
+          'Run specs in a browser or phantomjs')
   .parse(process.argv);
 
 
@@ -17,7 +20,9 @@ program
 var kaapi = new Kaapi({
   'ui': program.ui,
   'reporter': program.reporter,
-  'grep': program.grep
+  'grep': program.grep,
+  'coverage': program.coverage,
+  'browser': program.browser
 });
 
 if (program.watch) {

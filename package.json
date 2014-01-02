@@ -19,6 +19,7 @@
     "sinon-chai": "~2.4.0",
     "node.extend": "~1.0.8",
     "watch": "~0.8.0",
-    "minimatch": "~0.2.14"
+    "minimatch": "~0.2.14",
+    "send": "~0.1.4"
   }
 }
