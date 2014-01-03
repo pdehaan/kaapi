@@ -4,6 +4,9 @@
 
   var document = global.document;
   var mocha = global.mocha;
+  var Mocha = global.Mocha;
+  var stdout = global.__stdout = [];
+  var callPhantom = global.callPhantom;
 
   function ajax (url, callback) {
     var xhr = new XMLHttpRequest();
@@ -33,7 +36,7 @@
 
     mocha.setup({
       'ui': config.ui,
-      'reporter': 'html'
+      'reporter': callPhantom ? 'json' : 'html'
     });
 
     if (config.grep) {
@@ -52,12 +55,18 @@
         if (files.length) {
           next();
         } else {
-          mocha.run();
+          mocha.run(function () {
+            callPhantom({
+              'report': stdout.join('')
+            });
+          });
         }
       });
     }
 
     next();
   });
+
+  Mocha.process.stdout.write = stdout.push.bind(stdout);
 
 })(this);
