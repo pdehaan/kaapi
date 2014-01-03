@@ -36,6 +36,10 @@
       'reporter': 'html'
     });
 
+    if (config.grep) {
+      mocha.grep(config.grep);
+    }
+
     global.should = global.chai.should();
     global.expect = global.chai.expect;
 
