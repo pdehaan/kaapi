@@ -5,7 +5,8 @@ var program = require('mocha/node_modules/commander');
 
 program
   .version(require('../package.json').version)
-  .option('-f, --files <glob pattern>', 'Spec files')
+  .option('-d, --directory <dir>', 'Directory for Spec files')
+  .option('-p, --pattern <pattern>', 'Glob pattern for spec files')
   .option('-u, --ui [bdd|tdd]', 'Mocha user-interface')
   .option('-r, --reporter [dot|spec]', 'Mocha reporter to use')
   .option('-g, --grep <pattern>', 'filter specs by pattern')
@@ -18,6 +19,8 @@ program
 
 // Create a new runner
 var kaapi = new Kaapi({
+  'directory': program.directory,
+  'pattern': program.pattern,
   'ui': program.ui,
   'reporter': program.reporter,
   'grep': program.grep,
