@@ -19,11 +19,10 @@ module.exports = function (grunt) {
     }
 
     // Create a new runner
-    var runner = new Kaapi(options);
-    runner.glob(options.files.specs);
+    var kaapi = new Kaapi(options);
 
     // Run it
-    runner.run(function (count) {
+    kaapi.run(function (count) {
 
       // Stop fataly on any failed specs
       if (count) {
