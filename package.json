@@ -1,6 +1,6 @@
 {
   "name": "kaapi",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Highly-Opinionated, Mocha-based Spec runner",
   "main": "lib/kaapi.js",
   "bin": {
