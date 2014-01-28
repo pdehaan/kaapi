@@ -35,7 +35,8 @@
     global.should = global.chai.should();
     global.expect = global.chai.expect;
 
-    requirejs(config.files, function () {
+    var require = requirejs.config(config.requirejs);
+    require(config.files, function () {
       mocha.run();
     });
   });
