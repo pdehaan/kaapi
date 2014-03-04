@@ -32,12 +32,15 @@
     }
 
     global.isNode = false;
-    global.should = global.chai.should();
-    global.expect = global.chai.expect;
+    global.expect = global.expect || global.chai.expect;
 
     var require = requirejs.config(config.requirejs);
     require(config.files, function () {
-      mocha.run();
+      if (global.mochaPhantomJS) {
+        global.mochaPhantomJS.run();
+      } else {
+        mocha.run();
+      }
     });
   });
 
