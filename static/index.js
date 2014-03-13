@@ -32,7 +32,14 @@
     }
 
     global.isNode = false;
-    global.expect = global.expect || global.chai.expect;
+
+    var chai = global.chai;
+
+    // enable "expect"
+    global.expect = global.expect || chai.expect;
+
+    // enable should
+    chai.should();
 
     var require = requirejs.config(config.requirejs);
     require(config.files, function () {
