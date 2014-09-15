@@ -9,6 +9,7 @@
   "scripts": {
     "test": "bin/kaapi specs/*.spec.js"
   },
+  "repository": "netroy/kaapi",
   "author": "NetRoY <aditya@netroy.in> (http://netroy.in/)",
   "license": "MIT",
   "dependencies": {
